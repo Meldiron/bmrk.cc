@@ -44,7 +44,7 @@ export default async function Page() {
                 >
                   <Link
                     className="flex min-w-14 w-full pl-2 pr-2 h-7 rounded-none items-center hover:bg-accent/80 dark:hover:bg-accent/50 dark:active:bg-accent transition-colors focus:bg-accent/80"
-                    href={`/tags/${name}`}
+                    href={`/app/tags/${name}`}
                   >
                     {name}
                     <span className="font-medium ml-1">
