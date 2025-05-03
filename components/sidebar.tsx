@@ -35,21 +35,21 @@ export default function Sidebar() {
         </Link>
         <NavLink
           Icon={(props: any) => <HomeIcon {...props} />}
-          href={'/'}
+          href={'/app'}
           title="Home"
         />
         <SearchIcon />
         <NavLink
           Icon={(props: any) => <FavIcon {...props} />}
           className="max-sm:order-4"
-          href={'/favorites'}
+          href={'/app/favorites'}
           title="Favorites"
         />
 
         <NavLink
           Icon={(props: any) => <TagsIcon {...props} />}
           className="max-sm:order-4"
-          href={'/tags'}
+          href={'/app/tags'}
           title="Tags"
         />
 
