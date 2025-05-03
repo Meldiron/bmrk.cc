@@ -88,7 +88,7 @@ export default function AddBookmarkInput({
   useEffect(() => {
     if (url !== "") {
       onSubmit(url, true).then(() => {
-        router.replace('/app', undefined, { shallow: true });
+        router.replace('/app', undefined);
       });
     }
   }, []);
