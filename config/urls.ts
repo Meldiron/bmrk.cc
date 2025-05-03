@@ -1,6 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
-const domain = 'bmrk.cc';
+const domain = 'bmrk-cc-liard.vercel.app';
 const local = 'localhost:3000';
 const home = isProduction ? domain : local;
 export const protocol = isProduction ? 'https://' : 'http://';
@@ -8,12 +8,12 @@ export const protocol = isProduction ? 'https://' : 'http://';
 export const urls = {
   homeWithoutProtocol: home,
   home: `${protocol}${home}`,
-  authCallback: `${protocol}app.${home}/auth/callback/`,
-  account: `${protocol}app.${home}/account`,
-  intro: `${protocol}app.${home}/intro`,
-  settings: `${protocol}app.${home}/settings`,
-  app: `${protocol}app.${home}`,
-  api: `${protocol}app.${home}/api`,
+  authCallback: `${protocol}${home}/auth/callback/`,
+  account: `${protocol}${home}/account`,
+  intro: `${protocol}${home}/intro`,
+  settings: `${protocol}${home}/settings`,
+  app: `${protocol}${home}`,
+  api: `${protocol}${home}/api`,
   nonAppApi: `${protocol}${home}/api`,
   twitter: 'https://twitter.com/gokul_i',
   github: 'https://github.com/gokulkrishh/bmrk.cc',
