@@ -51,34 +51,6 @@ export default function Profile({ className }: { className?: string }) {
           </AvatarFallback>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="max-sm:mr-2 max-sm:min-w-44 min-w-40">
-          <DropdownMenuItem
-            className="flex items-center cursor-pointer"
-            onClick={() => {
-              window.open(urls.extensions.chrome, '_blank');
-            }}
-          >
-            <ExtensionsIcon className="h-4 w-4 mr-2 text-primary" />{' '}
-            <span className="mr-2">Extensions</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            className="flex items-center cursor-pointer"
-            onClick={() => {
-              window.open(
-                `https://github.com/gokulkrishh/bmrk.cc/issues/new/choose`,
-                '_blank',
-              );
-            }}
-          >
-            <BugIcon className="h-4 w-4 mr-2" /> File a bug
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            className="flex items-center cursor-pointer"
-            onClick={() => {
-              window.open(helpMailLink, '_blank');
-            }}
-          >
-            <HelpIcon className="h-4 w-4 mr-2" /> Help
-          </DropdownMenuItem>
           <DropdownMenuItem className="hidden max-sm:block">
             <Link className="flex items-center" href="/app/settings">
               <SettingsIcon className="h-4 w-4 mr-2" /> Settings

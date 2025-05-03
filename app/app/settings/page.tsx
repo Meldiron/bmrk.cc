@@ -28,7 +28,7 @@ export default async function Page() {
           </div>
         </div>
         <div className="flex flex-col">
-          <h2 className="font-medium mb-2">Plan & Usage</h2>
+          <h2 className="font-medium mb-2">Usage</h2>
           <div className="flex flex-col gap-6">
             <Plans />
           </div>

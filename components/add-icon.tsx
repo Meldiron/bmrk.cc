@@ -17,7 +17,8 @@ export default function AddIcon({ className }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const { authUser } = useAuth();
 
-  useHotkeys(['a'], (_, handler) => {
+  useHotkeys(['a'], (event, handler) => {
+    event.preventDefault();
     const keys = handler.keys?.join('');
     if (keys === 'a') setOpen(true);
   });

@@ -53,18 +53,9 @@ export default async function Plans() {
     <SettingsCard className="flex flex-col items-start gap-0 p-0">
       <div className="py-3 px-4 relative border-b w-full text-sm flex text-muted-foreground">
         <div className={cn(`flex max-sm:flex-col max-sm:gap-1`)}>
-          {!isPlanExpired ? (
-            <div className="flex items-center">
-              Currently on
-              <span className="mx-1 text-black dark:text-white font-medium">
-                {user.plan_status}
-              </span>
-              plan.
-            </div>
-          ) : null}
           {first && last && !isPlanExpired ? (
             <div>
-              <span className="sm:ml-1 mt-1">Current billing cycle:</span>
+              <span className="sm:ml-1 mt-1">Current cycle:</span>
               <span className="ml-1 text-black dark:text-white font-medium">
                 {formatBillingDate(first)} - {formatBillingDate(last)}
               </span>
@@ -146,28 +137,6 @@ export default async function Plans() {
           </div>
         </div>
       </div>
-
-      {isFreePlan || isPlanExpired ? (
-        <div className="flex w-full p-3.5 justify-between items-center border-t">
-          <p className="text-muted-foreground text-sm text-balance">
-            For more usage limits, upgrade to the Pro plan.
-          </p>
-          <PlanUpgradeButton />
-        </div>
-      ) : !isPlanExpired ? (
-        <div className="flex w-full p-3.5 justify-between items-center border-t">
-          <p className="text-muted-foreground text-sm">
-            Your {user.plan_status} plan will expire on{' '}
-            <span
-              className={cn(`text-primary font-medium`, {
-                'text-red-600 dark:text-red-500': isWithInTwoMonths,
-              })}
-            >
-              {formatDate(addYears(user.billing_cycle_start_date, 1))}
-            </span>
-          </p>
-        </div>
-      ) : null}
     </SettingsCard>
   );
 }

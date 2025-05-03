@@ -34,6 +34,28 @@ export const getBookmarks = async () => {
   return data;
 };
 
+export const getBookmarksWithoutTag = async () => {
+  const user = await getAuthUser();
+  if (!user) {
+    return [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from('bookmarks')
+    .select(`*, bookmarks_tags (tags!inner (id,name))`)
+    .is('bookmarks_tags', null)
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .returns<BookmarkModified[]>();
+
+  if (error) {
+    return [];
+  }
+
+  return data;
+};
+
 export const createBookmark = async (bookmark: BookmarkInsertModified) => {
   const user = await getAuthUser();
   if (!user) {

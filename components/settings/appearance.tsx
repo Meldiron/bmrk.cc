@@ -25,9 +25,7 @@ export default function Appearance() {
       setState(!state);
       await setImagePreview(!state);
       if (!state) {
-        toast.info(messages.imagePreview, {
-          duration: 6000,
-        });
+        toast.success(`Image preview is turned on`);
       } else {
         toast.success(`Image preview is turned off`);
       }

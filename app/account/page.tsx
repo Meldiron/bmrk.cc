@@ -4,6 +4,9 @@ import { urls } from 'config/urls';
 
 import AccountButton from 'components/account-button';
 import { Logo } from 'components/icons';
+import { getAuthUser, getUser } from 'app/actions/user';
+import { permanentRedirect } from 'next/navigation';
+
 
 const title = 'Bookmark it. | Account';
 const description =
@@ -15,6 +18,15 @@ export const metadata = {
 };
 
 export default async function Page() {
+  const [authUser, user] = await Promise.all([
+    await getAuthUser(),
+    await getUser(),
+  ]);
+  
+  if (authUser && user) {
+    permanentRedirect(urls.app);
+  }
+  
   return (
     <div className="flex flex-col mx-auto w-full homepage-account">
       <main className="flex max-w-md mx-auto flex-col justify-center h-full px-4 items-center">

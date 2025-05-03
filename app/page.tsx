@@ -10,6 +10,7 @@ import Features from 'components/home/features';
 import Footer from 'components/home/footer';
 import Pricing from 'components/home/pricing';
 import Signup from 'components/home/signup';
+import { permanentRedirect } from 'next/navigation';
 import { Tweet } from 'components/tweet/tweets';
 
 const tweetIds = [
@@ -25,6 +26,8 @@ const tweetIds = [
 ];
 
 export default async function Page() {
+  permanentRedirect(urls.account);
+  
   return (
     <div className="flex flex-col mx-auto w-full homepage">
       <main className="flex after:bg-grid sm:max-w-4xl py-5 mx-auto flex-col w-full h-fit px-4">
