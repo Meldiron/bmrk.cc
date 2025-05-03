@@ -1,6 +1,6 @@
 'use client';
 
-import { ClipboardEvent, SyntheticEvent, useState } from 'react';
+import { ClipboardEvent, SyntheticEvent, useEffect, useState } from 'react';
 
 import { toast } from 'sonner';
 
@@ -19,12 +19,14 @@ import { refreshInChromeExt } from 'lib/chrome-extension';
 import { cn, isValidUrl } from 'lib/utils';
 
 import { MetaTags } from 'types/data';
+import { useRouter } from 'next/navigation';
 
 type AddBookmarkInputProps = {
   className?: string;
   btnClassname?: string;
   onHide?: () => void;
   isInModal?: boolean;
+  urlDefault?: string;
 };
 
 export default function AddBookmarkInput({
@@ -32,15 +34,17 @@ export default function AddBookmarkInput({
   btnClassname = '',
   onHide,
   isInModal = false,
+  urlDefault = ''
 }: AddBookmarkInputProps) {
-  const [url, setUrl] = useState('');
+  const router = useRouter();
+  const [url, setUrl] = useState(urlDefault ?? '');
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const { user, currentPlan, isProPlan } = useUser();
   const hasUsageLimitedReached =
     user?.usage.bookmarks >= currentPlan.limit.bookmarks;
 
-  const onSubmit = async (inputUrl: string) => {
+  const onSubmit = async (inputUrl: string, initial = false) => {
     try {
       if (hasUsageLimitedReached) {
         toast.error(
@@ -80,6 +84,14 @@ export default function AddBookmarkInput({
       await onSubmit(pastedText);
     }
   };
+  
+  useEffect(() => {
+    if (url !== "") {
+      onSubmit(url, true).then(() => {
+        router.replace('/app', undefined, { shallow: true });
+      });
+    }
+  }, []);
 
   return (
     <div

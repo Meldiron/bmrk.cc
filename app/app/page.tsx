@@ -8,16 +8,19 @@ import { EmptyBookmarkState } from 'components/icons';
 
 export const revalidate = 3600;
 
-export default async function Page() {
+export default async function Page({searchParams}: any) {
   const [bookmarks, tags] = await Promise.all([
     await getBookmarks(),
     await getTags(),
   ]);
+  
+  const urlEncoded = searchParams['url'];
+  const url = urlEncoded ? atob(urlEncoded) : '';
 
   return (
     <>
       <Header />
-      <AddBookmarkInput className="px-3" btnClassname="relative top-3" />
+      <AddBookmarkInput urlDefault={url} className="px-3" btnClassname="relative top-3" />
       <div className="h-full sm:border-r border-border pb-24">
         {bookmarks.length ? (
           <CardList bookmarks={bookmarks} tags={tags} />

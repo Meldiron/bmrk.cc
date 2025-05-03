@@ -32,7 +32,7 @@ export default async function Page() {
           <h1 className="font-semibold text-xl flex items-center">
             <Link
               className="flex text-primary items-center active:opacity-80"
-              href="/"
+              href="/app"
             >
               <Image
                 src="/icons/icon.svg"
