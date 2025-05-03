@@ -10,6 +10,7 @@ export async function GET(request: Request) {
   const code = searchParams.get('code');
 
   if (code) {
+    console.log(code);
     try {
       const supabase = createServerClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -30,6 +31,7 @@ export async function GET(request: Request) {
       );
       const { data, error } = await supabase.auth.exchangeCodeForSession(code);
       if (error) {
+        console.log(error);
         throw new Error('Error during code exchange');
       }
       const { user } = data;
@@ -40,6 +42,7 @@ export async function GET(request: Request) {
         .single();
 
       if (userError) {
+        console.log(userError);
         throw new Error('Error fetching user data');
       }
 
