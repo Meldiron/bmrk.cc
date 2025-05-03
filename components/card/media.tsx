@@ -23,7 +23,7 @@ export default function CardMedia({ data }: { data: BookmarkModified }) {
   }
 
   const url = new URL(data.url);
-  url.searchParams.append('utm_source', 'bmrk.cc');
+  // url.searchParams.append('utm_source', 'bmrk.cc');
 
   return (
     <Link

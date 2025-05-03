@@ -4,7 +4,7 @@ import { Bookmark } from 'types/data';
 
 export default function CardInfo({ data }: { data: Bookmark }) {
   const url = new URL(data.url);
-  url.searchParams.append('utm_source', 'bmrk.cc');
+  // url.searchParams.append('utm_source', 'bmrk.cc');
   return (
     <Link
       title={data.title ?? ''}

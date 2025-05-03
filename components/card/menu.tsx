@@ -116,7 +116,7 @@ export default function CardMenu({
   };
 
   const siteUrl = new URL(url);
-  siteUrl.searchParams.append('utm_source', 'bmrk.cc');
+  // siteUrl.searchParams.append('utm_source', 'bmrk.cc');
 
   const share = async () => {
     try {

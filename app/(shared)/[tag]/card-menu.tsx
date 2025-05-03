@@ -23,7 +23,7 @@ export default function CardMenu({ data, className }: CardMenuProps) {
   const { url } = data;
 
   const siteUrl = new URL(url);
-  siteUrl.searchParams.append('utm_source', 'bmrk.cc');
+  // siteUrl.searchParams.append('utm_source', 'bmrk.cc');
 
   const share = async () => {
     try {

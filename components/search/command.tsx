@@ -89,7 +89,7 @@ function SearchCommand({ open, setOpen }: SearchCommandProps) {
                   <CommandItem
                     className="flex flex-col items-start w-full"
                     onSelect={() => {
-                      openBookmark(`${bookmark.url}?utm_source=bmrk.cc`);
+                      openBookmark(`${bookmark.url}`);
                     }}
                     key={`${bookmark.id}`}
                     keywords={[bookmark.title ?? '', bookmark.url, ...tags]}
@@ -97,7 +97,7 @@ function SearchCommand({ open, setOpen }: SearchCommandProps) {
                     <div className="flex gap-2 items-start text-pimary-foreground w-full">
                       <CardFavicon
                         className="bg-background w-5 h-5"
-                        url={`${bookmark.url}?utm_source=bmrk.cc`}
+                        url={`${bookmark.url}`}
                         title={bookmark.title ?? ''}
                       />
                       <div className="flex flex-col">

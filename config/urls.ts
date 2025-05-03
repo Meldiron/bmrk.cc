@@ -1,6 +1,6 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
-const domain = 'bmrk-cc-liard.vercel.app';
+const domain = 'bookmarks.almostapps.eu';
 const local = 'localhost:3000';
 const home = isProduction ? domain : local;
 export const protocol = isProduction ? 'https://' : 'http://';

@@ -3,19 +3,19 @@ import { MetadataRoute } from 'next';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
-      url: `https://bmrk-cc-liard.vercel.app`,
+      url: `https://bookmarks.almostapps.eu`,
       lastModified: new Date(),
     },
     {
-      url: `https://bmrk-cc-liard.vercel.app/account`,
+      url: `https://bookmarks.almostapps.eu/account`,
       lastModified: new Date(),
     },
     {
-      url: `https://bmrk-cc-liard.vercel.app/terms`,
+      url: `https://bookmarks.almostapps.eu/terms`,
       lastModified: new Date(),
     },
     {
-      url: `https://bmrk-cc-liard.vercel.app/privacy`,
+      url: `https://bookmarks.almostapps.eu/privacy`,
       lastModified: new Date(),
     },
   ];
