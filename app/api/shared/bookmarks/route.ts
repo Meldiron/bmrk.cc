@@ -2,8 +2,6 @@ import { NextRequest } from 'next/server';
 
 import { createClient } from '@supabase/supabase-js';
 
-import { ratelimit } from 'lib/api';
-
 import { BookmarkModified, Tag } from 'types/data';
 import { Database } from 'types/supabase';
 
@@ -23,11 +21,6 @@ export async function GET(request: NextRequest) {
 
   const parsedHash = decodeURIComponent(hash ?? '');
   let ip = request.headers.get("x-real-ip") ?? '127.0.0.1' as string;
-  const { success } = await ratelimit.limit(ip);
-
-  if (!success) {
-    return new Response('Rate limit exceeded', { status: 429 });
-  }
 
   try {
     if (parsedHash!.length) {

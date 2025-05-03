@@ -5,12 +5,12 @@ export const plans: PlansType = {
     type: 'free',
     name: 'Free',
     limit: {
-      bookmarks: 25,
-      tags: 15,
-      favorites: 15,
+      bookmarks: 10000,
+      tags: 1000,
+      favorites: 1000,
       sessions: 0,
-      imports: 1,
-      share: 1,
+      imports: 100,
+      share: 100,
     },
     pricing: {
       monthly: 0,

@@ -30,19 +30,11 @@ export const getUserPlan = (userData: UserModified) => {
 };
 
 export const isProPlan = (userData: UserModified) => {
-  return (
-    userData?.plan_status === plans.pro.type &&
-    userData?.order_info?.status === 'paid'
-  );
+  return true;
 };
 
 export const isProPlanExpired = (userData: UserModified) => {
-  const calcualtedRenewalDate = addYears(userData.billing_cycle_start_date, 1);
-  return (
-    isProPlan(userData) &&
-    calcualtedRenewalDate &&
-    new Date() >= calcualtedRenewalDate
-  );
+  return false;
 };
 
 export const checkBookmarkLimit = (
