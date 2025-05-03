@@ -80,7 +80,7 @@ export default function Profile({ className }: { className?: string }) {
             <HelpIcon className="h-4 w-4 mr-2" /> Help
           </DropdownMenuItem>
           <DropdownMenuItem className="hidden max-sm:block">
-            <Link className="flex items-center" href="/settings">
+            <Link className="flex items-center" href="/app/settings">
               <SettingsIcon className="h-4 w-4 mr-2" /> Settings
             </Link>
           </DropdownMenuItem>
